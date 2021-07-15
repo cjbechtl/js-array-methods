@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Technical Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav id="navbar">
+            <header>JS Array Methods You Should Know</header>
+            <ul>
+                <li class="nav-item"><a class="nav-link" href="#find">find()</a></li>
+                <li class="nav-item"><a class="nav-link" href="#filter">filter()</a></li>
+                <li class="nav-item"><a class="nav-link" href="#map">map()</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reduce">reduce()</a></li>
+                <li class="nav-item"><a class="nav-link" href="#forEach">forEach()</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Reference">Reference</a></li>
+            </ul>
+        </nav>
+        <main id="main-doc">
+            <section class="main-section " id="find">
+                <header >Array.find()</header>
+                <article>
+                    <p>
+                        The find() method returns the value of the first element in an array that pass a test (provided as a function).
+                    </p>
+                    <p>
+                        The find() method executes the function once for each element present in the array:
+
+                    </p>
+                    <ul>
+                        <li>
+                            If it finds an array element where the function returns a true value, find() returns the value of that array element
+                            (and does not check the remaining values)
+                        </li>
+                        <li>
+                            Otherwise it returns undefined
+                        </li>
+                    </ul>
+                    <p>See below for some examples:</p>
+
+                    <ul>
+                        <li>
+                            <code>// Find the first even number and store it inside a variable.
+                            let firstEvenNumber = arrOfNumbers.find((number) => number % 2 !== 1)</code>
+                        </li>
+                        <li>
+                            <code>// Find the first number smaller than 1 and store it inside a variable
+                                let firstNumberSmallerThanOne = arrOfNumbers.find((number) => number < 1)</code>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+            <section class="main-section" id="filter">
+                <header>Array.filter()</header>
+                <article>
+                    <p>The filter method allows us to iterate through an array and return all items or elements that fit the condition you
+                    provided through the callback function.</p>
+
+                    <p>See below for some examples:</p>
+
+                    <ul>
+                        <li>
+                            <code>// Create an array with all even numbers from arrOfNumbers.
+                            let evenNumbers = arrOfNumbers.filter((number) => number % 2 !== 1)</code>
+                        </li>
+                        <li>
+                            <code>// Create an array with all living people from arrOfObjects.
+                            let livingPeople = arrOfObjects.filter((person) => person.living)</code>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+            <section class="main-section" id="map">
+                <header>Array.map()</header>
+                <article>
+                    <p>
+                        The map method works in a similar way as filter. It also allows us to iterate through an array. However, map gives is
+                        much more universal than filter. When you use map you can do whatever you want with the content of array, its items.
+                    </p>
+
+                    <p>See below for some examples:</p>
+
+                    <ul>
+                        <li>
+                            <code>// Create an array with modulus of 4 for all numbers.
+                            let modulus = arrOfNumbers.map(number => number % 4)</code>
+                        </li>
+                        <li>
+                            <code>// Create an array with all subjects to learn.
+                            let toLearn = arrOfWords.map((word) => `I have to learn: ${word}`)</code>
+                        </li>
+                    </ul>
+        
+                    
+                </article>
+            </section>
+            <section class="main-section" id="reduce">
+                <header>Array.reduce()</header>
+                <article>
+                    <p>
+                        The reduce method works with two parameters, accumulator and currentValue. Well, it uses four parameters, but two are
+                        optional. It then returns a single value based on a reducer function you provided as a callback. About the parameters.
+                        The accumulator stores the previous value returned by reducer function. The currentValue stores the value of item of
+                        current iteration.
+                    </p>
+                    <p>
+                        In other words, imagine that you have an array with five items. And, the reducer is currently passing the fourth item.
+                        In this case, the accumulator stores a single value of the item one to three. For example addition of these items. The
+                        currentValue stores the value of the fourth item, executing the reducer function you provided as a callback.
+                    </p>
+                    <p>
+                        This method can be useful if you have an array, or arrays, and want to do some quick mathematical operations with all
+                        its items, such as adding, subtracting, multiplying, dividing, etc.
+                    </p>
+                    <p>See below for some examples:</p>
+                    <ul>
+                        <li>
+                            <code>// Create an array with total sum of all numbers in arrOfNumbers.
+                            let sumTotal = arrOfNumbers.reduce((accumulator, currentValue) => accumulator + currentValue</code>
+                        </li>
+                        <li>// Create another array but now subtract all numbers in arrOfNumbers.
+                        let subtract = arrOfNumbers.reduce((accumulator, currentValue) => accumulator - currentValue)</li>
+                    </ul>
+                </article>
+            </section>
+            <section class="main-section" id="forEach">
+                <header>Array.forEach()</header>
+                <p>
+                    The forEach works in a very simple way. It executes a callback you provided for each and every item in the array.
+                    forEach is one of my favorites. I use it as a replacement for the good old for loop, especially with combination with
+                    querySelectorAll.
+                </p>
+                
+                <p>See below for some examples:</p>
+
+                <ul>
+                    <li>
+                        <code>// Get all buttons on the website.
+                        let buttons = document.querySelectorAll('button')
+                        
+                        // Create a simple function for handling clicks.
+                        let handleClick = (e) => {
+                        e.preventDefault()
+                        
+                        ... do something ...
+                        
+                        console.log(`Button with id ${e.currentTarget.id} has been clicked.`)
+                        }
+                        
+                        // Add event listener to all buttons.
+                        buttons.forEach((button) => {
+                        button.addEventListener('click', handleClick)
+                        })</code>
+                    </li>
+                    <li>
+                        <code>// Create new empty array.
+                        let randoms = []
+                        
+                        // Iterate over arrOfNumbers array, increase every value by adding a random number and push it to new randoms array.
+                        arrOfNumbers.forEach((number) => {
+                        randoms.push(number + Math.floor(Math.random() * 10))
+                        })</code>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="main-section" id="Reference">
+                <header>Reference</header>
+                <article>
+                    <ul>
+                        <li>
+                            All the documentation in this page is taken from
+                            <a href="https://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">W3Schools</a>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+        </main>
+
+    </body>
+</html>
